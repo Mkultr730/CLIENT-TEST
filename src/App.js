@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment, useState } from 'react';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
 import './App.css';
 
+import Header from './components/Header';
+import User from './components/user/User';
+import Area from './components/area/Area';
+
+
 function App() {
+  
+  const [header, setHeader] = useState('User');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Fragment>
+        <Header title={header} setHeader={setHeader}/>
+        <div className="container main-content">
+            <div className="row body">
+              <Switch>
+                <Redirect from="/" to="/user" exact />
+                <Route path="/user" component={User}></Route>
+                <Route path="/area" component={Area}></Route>
+              </Switch>
+            </div>
+        </div>
+      </Fragment>
+    </BrowserRouter>
   );
 }
 
