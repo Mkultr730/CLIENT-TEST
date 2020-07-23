@@ -26,9 +26,9 @@ const List = ({setCurrentuser, refresh, setRefresh, setIsnew, deleteUser}) => {
                 return (
                     <div className="card" key={user.ID}>
                         <div className="card-body">
-                            <h5 className="card-title"> { user.name } </h5>
-                            <h6 className="card-subtitle mb-2 text-muted">{ user.email }</h6>
-                            <p className="card-text">{ user.ID }</p>
+                            <h5 className="card-title">Name: { user.name } </h5>
+                            <h6 className="card-subtitle mb-2 text-muted">Email: { user.email }</h6>
+                            <p className="card-text">User ID:{ user.ID }</p>
                             <button 
                                 type="button"
                                 className="button-primary"

@@ -20,10 +20,7 @@ const User = () => {
             salary: user.salary
         }
 
-
-        const res = await axios.post('http://localhost:8100/users/create', body);
-        console.log(res);
-
+        await axios.post('http://localhost:8100/users/create', body);
     }
 
     const deleteUser = async (id) =>  {
